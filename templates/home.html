@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="flashcard-list">
+    <h1 class="home-title dark-blue">Your Habits </h1>
+    <div class="container">
+        {% for habit in habits %}
+        <div class="home-habit"> 
+            <div class="habit mv1 pa3 br2 bw--1 b--near-white bg-white">
+            </section>
+    </div>
+        {% empty %}
+        <h2>Sorry, no habits yet.</h2>
+        <h3>Add some habits now.</h3>
+        {% endfor %}
+        
+</section>
+
+{% endblock content %}

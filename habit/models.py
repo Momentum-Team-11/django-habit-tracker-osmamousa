@@ -1,10 +1,10 @@
 from django.db import models
 from datetime import datetime
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 
-class User(AbstractBaseUser):
+class User(AbstractUser):
     def __repr__(self):
         return f"<User username={self.username}>"
     
@@ -15,18 +15,16 @@ class User(AbstractBaseUser):
 class Habit(models.Model):
     name = models.CharField(max_length=50)
     goal = models.CharField(max_length=200)
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="habit_user"
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name="habits"
     )
 
 
 class Record(models.Model):
     date = models.DateField(auto_now_add=datetime.now)
-    habit = models.ForeignKey(
-        Habit, on_delete=models.CASCADE, null=True, blank=True, related_name="habit"
-    )
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True, related_name="habit_record_user"
     )
+    goal_complete = models.BooleanField(default=False)
 
     class meta:
         constraints = [

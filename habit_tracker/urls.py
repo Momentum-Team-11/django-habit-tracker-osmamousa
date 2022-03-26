@@ -20,5 +20,5 @@ from habit import views as habit_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('', habit_views.login, name='login'),
+    path('', habit_views.home, name='home'),
 ]

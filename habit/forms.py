@@ -12,7 +12,7 @@ class HabitForm(forms.ModelForm):
             'goal',
         ]
 
-class RecordFrom(forms.ModelForm):
+class RecordForm(forms.ModelForm):
     date = forms.DateField(input_formats=["%m/%d/%Y"])
 
     class Meta:
